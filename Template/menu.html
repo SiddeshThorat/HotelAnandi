@@ -1,0 +1,710 @@
+
+{% load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+  <link rel="stylesheet" href="{% static 'styles/stylemenu.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/stylemenu.min.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/stylemenu.min.js' %}">
+
+    <title>Menu Page</title>
+  </head>
+  <body>
+
+    <style> 
+        /* Set the border color */ 
+          
+        .custom-toggler.navbar-toggler { 
+            border-color: blue; 
+        } 
+        /* Setting the stroke to green using rgb values (0, 128, 0) */ 
+          
+        .custom-toggler .navbar-toggler-icon { 
+            background-image: url( 
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 1, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+        } 
+    </style> 
+
+
+
+<nav class="navbar navbar-expand-lg " style="background-color: #381A14;">
+  <a class="navbar-brand" href="home">Hotel Anandi</a>
+  <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item mar mb-1">
+        <a class=" nav-link t" href="home">Home</a>
+      </li>
+      <li class="nav-item mar mb-1">
+        <a class="  nav-link t" class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Basket(<span id="cart">0</span>)</a>
+        
+      </li>
+      <li class="nav-item mar active dropdown  mb-1">
+        <a class=" t nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu Sections
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#bhaji">Bhaji</a>
+            <a class="dropdown-item" href="#rice">Rice</a>
+            <a class="dropdown-item" href="#hotdrinks">Hot Drinks</a>
+            <a class="dropdown-item" href="#specialbread">Special Bread</a>
+            <a class="dropdown-item" href="#maharashtriannashta">Maharashtrian Nashta</a>
+            <a class="dropdown-item" href="#southindian">South Indian</a>
+            <a class="dropdown-item" href="#pavbhaji">Pav Bhaji</a>
+            <a class="dropdown-item" href="#chineese">Chineese</a>
+            <a class="dropdown-item" href="#soup">Soup</a>
+            <a class="dropdown-item" href="#roti">Roti</a>
+            <a class="dropdown-item" href="#papad">Papad</a>
+            <a class="dropdown-item" href="#foodforfast">Food For Fast</a>
+            <a class="dropdown-item" href="#sweet">Sweets</a>
+            <a class="dropdown-item" href="#juice">Juice</a>
+            <a class="dropdown-item" href="#colddrink">Cold Drinks</a>
+            <a class="dropdown-item" href="#milkshake">MilkShake</a>
+              
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+        <div class="collapse" id="collapseExample" >
+            <div class="card card-body">
+              <span id="popcart"></span>
+             <div class="container row">
+             <a href="order"><button class="btn btn-primary mr-1">Confirm</button></a>
+             <button class="btn btn-primary" onClick='clearcart()'>Clear Basket</button>
+             </div> 
+             </div>
+        </div>
+
+
+
+   <section class="gallery-block cards-gallery">
+    <div class="container" id="bhaji">
+      <center><h1> Veg Bhaji </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'bhaji' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="rice">
+      <center><h1> Rice </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'Rice' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="hotdrinks">
+      <center><h1> Hot Drinks </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'hot_drinks' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="specialbread">
+      <center><h1> Special Breads </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'special_bread' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="maharashtriannashta">
+      <center><h1> Maharashtrian Nashta </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'maharashtrian_nashta' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="southindian">
+      <center><h1> South Indian </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'south_indian' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="pavbhaji">
+      <center><h1> Pav Bhaji</h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'pav_bhaji' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="chineese">
+      <center><h1> Chineese </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'chineese' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="soup">
+      <center><h1> Soup </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'soup' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="roti">
+      <center><h1> Roti </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'roti' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="papad">
+      <center><h1> Papad </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'papad' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="foodforfast">
+      <center><h1> Food For Fast </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'food_for_fast' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="sweet">
+      <center><h1> Sweets </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'sweet' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="juice">
+      <center><h1> Juice </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'juice' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+
+
+ <section class="gallery-block cards-gallery">
+    <div class="container" id="colddrink">
+      <center><h1> Cold Drinks </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'cold_drink' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+    <section class="gallery-block cards-gallery">
+    <div class="container" id="milkshake">
+      <center><h1> Milkshake </h1><hr></center>
+      <div class="row">
+    {% for dest in dest%}
+      {% if dest.category == 'milk_shake' %}
+        <div class="col-lg-3 col-sm-6 col-xs-6">
+          <div class="card border-0 transform-on-hover">
+            <img style="border-radius:5%;padding-right: 10px;padding-left: 10px" src="{{ dest.bhaji_image.url }}" class="card-img-top">
+            <div class="card-body">
+              <h6 id="nameID{{dest.id}}">{{ dest.bhaji_name }}</h6>
+              <b>Price :  </b><h5 style="font-size: 15px" id="priceID{{dest.id}}">{{ dest.bhaji_price }}</h5>
+              <span id='divID{{dest.id}}' class='divID'>
+                <button id="ID{{dest.id}}" class="btn btn-primary cart">Add to basket</button>
+              </span>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor%}
+
+        
+      </div>
+      
+    </div>
+
+   </section>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+   <script>
+
+
+      if(localStorage.getItem('cart') == null )
+      {
+        var cart = {};
+        document.getElementById('popcart').innerHTML = `<h5>Food Basket</h5><br><p>Your basket is empty</p>`; 
+      } 
+      else
+      {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        localStorage.setItem('cart',JSON.stringify(cart));
+var total = 0;
+        for (i = 0; i < Object.values(cart).length; i++) 
+          {
+            total += Object.values(cart)[i][0];
+          }
+        document.getElementById('cart').innerHTML=total;
+        var popstr1="";
+        for (items in cart)
+        {
+          if(cart[items][0] != 0)
+          {
+            popstr1 = popstr1 + "<b>" +i+ ". </b>";
+
+            popstr1 = popstr1 + document.getElementById('name'+items).innerHTML +"   Qty :" + cart[items][0] + '<br>';
+            i=i+1;
+          }
+        }          
+         document.getElementById('popcart').innerHTML = popstr1;
+         
+        
+      }
+
+
+function updatePopover(cart)
+{
+  console.log(cart);
+  var popstr = "";
+  popstr = popstr + "<h5>Food Basket</h5>";
+  var i=1;
+  for (items in cart)
+  {
+    if(cart[items][0] != 0)
+    {
+        popstr = popstr + "<b>" +i+ ". </b>";
+
+        popstr = popstr + document.getElementById('name'+items).innerHTML +"   Qty :" + cart[items][0] + '<br>';
+        i=i+1;
+    }
+  }
+   
+
+  document.getElementById('popcart').innerHTML = popstr; 
+   
+}
+
+
+
+
+
+
+//we use this method when the button is static but when we insert any dyanic button then we needc to use on function
+// $('.cart').click(
+//this .divID1 is the id in span tag
+$('.divID').on('click', 'button.cart',
+    function()
+      {
+        
+        var tostr = this.id.toString();
+        
+        if(cart[tostr] != undefined)
+        {
+          qty = cart[tostr][0] + 1;
+
+        }
+        else
+        {
+          qty = 1;
+          name = document.getElementById('name'+tostr).innerHTML;
+          price = document.getElementById('price'+tostr).innerHTML;
+          cart[tostr] = [qty,name,price];
+        }
+        localStorage.setItem('cart',JSON.stringify(cart));
+        console.log("items added to cart");
+        console.log(cart);
+        updateCart(cart);
+       }
+
+  );
+
+
+//funtion for updating cart
+function updateCart(cart)
+    {
+     for(var item in cart) 
+      {
+      document.getElementById('div'+item).innerHTML = "<div><button id='minus"+item+"'class='btn minus' style='color:white;'>-</button> <span id='val"+item+"''>"+cart[item][0]+"</span> <button id='plus"+item+"'class='btn plus' style='color:white;'>+</button></div>";
+      }
+        var total = 0;
+        for (i = 0; i < Object.values(cart).length; i++) 
+          {
+            total += Object.values(cart)[i][0];
+          }
+        document.getElementById('cart').innerHTML=total;
+        console.log("We are inside updatecart function")
+        updatePopover(cart);
+
+    }
+
+function clearcart()
+{
+  cart = JSON.parse(localStorage.getItem('cart'));
+  for(var item in cart)
+  {
+      document.getElementById('div'+item).innerHTML =  '<button id="'+item+'" class="btn btn-primary cart adjustment"  >Add To Basket</button> '
+  }
+  localStorage.clear()
+  cart = {}
+  updateCart(cart)  
+}
+
+
+
+$('.divID').on("click","button.minus",
+  function()
+  {
+    a = this.id.slice(5,);
+    cart[a][0] = cart[a][0] - 1;
+    cart[a][0] = Math.max(0,cart[a][0]); //this function returns the number which is more if the value in cart[a]-1 becomes negative then it will return 0
+    document.getElementById('div'+a).innerHTML = cart[a][0];
+    localStorage.setItem('cart',JSON.stringify(cart));
+    updateCart(cart);
+  }
+);
+
+
+$('.divID').on("click","button.plus",
+  function()
+  {
+    a = this.id.slice(4,);
+    cart[a][0] = cart[a][0] + 1;
+    document.getElementById('div'+a).innerHTML = cart[a][0];
+    localStorage.setItem('cart',JSON.stringify(cart));
+    updateCart(cart);
+  }
+);
+
+
+
+  </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,199 @@
+{% extends 'Header_template.html' %}
+{% load static %}
+{% block title %}
+Order
+{% endblock title %}
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+    <!-- <link rel="stylesheet" href="D:/HotelProject/NewHotelProject/style.css"> -->
+
+
+    
+{% block body %}
+    
+<style>
+  .c{
+border: 1px solid #381A14 ;
+border-radius: 10px;
+margin-top: 15px;
+box-shadow: 3px 3px 3px gray;
+}
+</style>
+
+<div class='container my-4 c' >
+<span id ="clr" class="clr">
+	<div class="cls_clear" id="gayab3">
+       <h1 id="text"></h1>
+       <div id="clear" >
+          <ul class="list-group" id="elements" >
+       
+	      </ul>
+        
+        </div>
+    </div>
+<div class="container">
+              <h1 id="gayab2" style="margin-top: 10px;color:#363636;font-size: 30px">Total Bill :- <span id="total_price" class="inr-sign">  </span> </h1>
+              <button class='btn btn-primary clearing_cart mt-3'id="gayab4"style="color:white;text-width:30px;height:50px;width:200;background-color: #381A14;border-radius: 25px;font-size: 20px">Clear Cart <span class="glyphicon glyphicon-trash"></span></button>
+        <a href="menu"><button class='btn btn-primary mt-3'id="gayab5"style="color:white;text-width:30px;height:50px;width:200;background-color: #381A14;border-radius: 25px;font-size: 20px;margin-bottom: 5px">Want to Eat More <span class="glyphicon glyphicon-food"></span></button></a> 
+        </div>
+
+
+	 
+</span>
+</div>
+<div class="container c my-4" id="gayab">
+<h1 style="margin-top: 20px"><mark>Enter details for Delivery</mark></h1>
+<form action="/order" method="POST">
+	   {% csrf_token %}
+	   <input type="hidden" id="itemsjson" name="itemsjson">
+     <input type="hidden" id="bill" name="bill">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="cus_name">Customer Name</label>
+      <input type="name" required class="form-control" id="cus_name" name="cus_name" placeholder="Customer Name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="email">Email Id</label>
+      <input type="email" required class="form-control" id="email" name="email_id" placeholder="Enter Email Id">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress1">Address Line 1</label>
+    <input type="text" required class="form-control" id="inputAddress1" name="address1" placeholder="Building/Apartment/House No. ">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address Line 2</label>
+    <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Street/Road/landmark">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" required class="form-control" name="city" value="Supa" id="inputCity" readonly>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+       <input type="text" class="form-control"  id="inputState" value="Maharashtra" name="state"  readonly>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" required class="form-control" id="inputZip" value="414301" name="zip"  readonly>
+    </div>
+  </div>
+  <div class="form-group ">
+      <label for="inputPhone">Phone</label>
+      <input type="phone" required class="form-control" id="inputPhone" name="phone_no">
+  </div>
+  <button class='btn btn-primary inputting' style="color:white;text-width:30px;height:50px;width:200;background-color: #381A14;border-radius: 25px;font-size: 20px;margin-bottom:5px;"><span class="glyphicon glyphicon-cutlery"></span>  Place Order</button> 
+</form>
+</div>
+
+
+{% endblock body %}
+
+
+{% block jss %}
+
+<script>
+
+//Another way of checking whether the localstorage object is empty or not
+// cart = JSOn.parse(localStorage.getItem('cart'));
+// if($.isemptyObject(cart))
+// {} 
+// document.getElementById("c").onclick = function() { 
+  
+//             document.getElementById("gayab").style.display = "none";
+//              document.getElementById("gayab2").style.display = "none"; 
+//              document.getElementById("gayab3").style.display = "none";   
+  
+//         }
+
+var sum = 0;
+var total_price=0;
+if(localStorage.getItem('cart')== null )
+{
+	var cart = {};
+
+mystr = `<h1 style="color:#EEE1B1;text-align: center;text-shadow: 4px 4px #381A14;font-size: 50px">Your basket is empty</h1><br><div style="margin-top:70px;margin-bottom:600px;border:3px solid #AA714D;padding:5px;overflow:auto"><img width="500" height="700"
+  style="float:right;overflow:auto;" src="{% static 'img/core-img/basket.png' %}"><a href='menu'><button style="color:white;text-width:30px;height:50px;width:200;background-color: #381A14;border-radius: 25px;" class="mt-4"><span class='glyphicon glyphicon-backward'></span>  Go back to menu</button></a></div>`
+	$('#text').append(mystr);
+  document.getElementById("gayab").style.display = "none";
+  document.getElementById("gayab2").style.display = "none";
+    document.getElementById("gayab4").style.display = "none";
+      document.getElementById("gayab5").style.display = "none";
+  // document.getElementById("c").style.display = "none";    
+} 
+else
+{
+	cart = JSON.parse(localStorage.getItem('cart'));
+	text = `<h1 style="margin-bottom:30px;text-align:center;color:#EEE1B1;text-align: center;text-shadow: 2px 2px #381A14;font-size: 50px">Order Summary</h1`;
+		    $('#text').append(text);
+  var sum=0;
+			for(item in cart){
+      let qty = cart[item][0];
+			let name = cart[item][1];			
+      let price = cart[item][2];
+      if(cart[item][0] != 0){
+          total_price = total_price + price*qty ;
+    		    sum=sum+qty;
+    		    
+    		    mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+    		          ${name}
+    		          <span class="badge badge-primary badge-pill">${qty}</span>
+    		      </li>`
+
+       
+		    $('#elements').append(mystr);
+        }
+		    }
+        price_str = `${total_price}`
+        $('#total_price').append(price_str);  
+         // document.getElementById('cart').innerHTML = sum;
+
+ } 
+
+
+
+
+// document.getElementById('cart').innerHTML = sum;
+
+$('.clr').on("click","button.clearing_cart",
+	function()
+	{
+        console.log('this is clear cart function on order page')
+
+            document.getElementById("gayab").style.display = "none";
+             document.getElementById("gayab2").style.display = "none"; 
+             document.getElementById("gayab3").style.display = "none";  
+
+		document.getElementById('clr').innerHTML = `<h1 style="color:#EEE1B1;text-align: center;text-shadow: 4px 4px #AA714D;font-size: 50px">Your basket is empty</h1><br><div style="margin-top:70px;margin-bottom:600px;border:3px solid #AA714D;padding:5px;overflow:auto"><img width="500" height="700"
+  style="float:right;overflow:auto;" src="{% static 'img/core-img/basket.png' %}"><a href='/menu'><button  style="color:white;text-width:30px;height:50px;width:200;background-color: #381A14;border-radius: 25px;" class="mt-4"><span class='glyphicon glyphicon-backward'></span>  Go back to menu</button></a></div>` ;
+        localStorage.clear();
+        var sum=0;
+
+        // document.getElementById('cart').innerHTML = sum;
+
+	}
+);
+
+// passing bill amount to the form
+var bill = document.getElementById('total_price').innerHTML
+$('#bill').val(bill);
+
+
+//passing json object to form
+$('#itemsjson').val(JSON.stringify(cart));
+
+{% if thank %}
+alert("Your Order Is placed Successfully with order id: {{id}}");
+localStorage.clear();
+document.location = "/review";
+{% endif %}
+</script>
+{% endblock jss %}
+
+
+

@@ -1,0 +1,87 @@
+{% load static %}
+<html>
+<head>
+  <link rel = "icon" href ="{% static 'images/t.jpg' %}" type = "image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css" rel="stylesheet">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title> {% block title %} {% endblock title %}</title>
+
+    <!-- Favicon -->
+    <!-- <link rel="stylesheet" href="{% static 'js/google-map/map-active.js' %}"> -->
+
+    <!-- Core Stylesheet -->
+    <!-- <link rel="stylesheet" href="{% static 'fontawesome-free-5.13.0-web/css/all.css' %}"> -->
+    <!-- <script defer src="{% static 'fontawesome-free-5.13.0-web/js/all.js' %}"></script> -->
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+   
+
+</head>
+
+<body>
+<style>
+   .top-nav-right{
+    float: right;
+    margin-right: 150px;
+   }
+   .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+ </style> 
+
+<!-- ##### Header Area Start ##### -->
+
+
+<!-- 
+<button type="button" class="btn btn-success popcart" id="popcart" data-html="true" trigger-click="true" data-container="body" data-title="popcart" data-toggle="popover" data-placement="bottom" data-original-title="Food Add To Basket">
+  Basket(<span id="cart">0</span>)
+</button> --> 
+                     
+     
+
+
+
+
+    <!-- ##### Header Area End ##### -->
+
+
+     {% block body %}    
+     {% endblock body %}
+
+
+{% block jss %}
+{% endblock jss %}
+
+
+</body>
+
+</html>

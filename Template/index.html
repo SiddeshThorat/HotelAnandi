@@ -1,0 +1,386 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Hotel Anandi</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<link rel = "icon" href ="{% static 'images/t.jpg' %}" type = "image/x-icon"> 
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+</head>
+
+
+<body>
+<div class="super_container">
+  
+  <!-- Header -->
+
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="header_content d-flex flex-row align-items-center justify-content-start">
+            <div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+              <div class="logo"><a href="index">Hotel Anandi</a></div>
+
+              <nav class="main_nav" data-toggle='#data_toggle'>
+  
+  
+                <ul class="d-flex flex-row align-items-start justify-content-start">
+                  <li class="active"><a href="home">Home</a></li>
+                  <li><a href="menu">Menu</a></li>
+                  <li><a href="about">About Us</a></li>
+                  <li><a href="contact">Contact</a></li>
+                  <li><a href="team">Owner</a></li>
+                  
+        
+                </ul>
+          
+              </nav>
+              <div class="header_phone ml-auto">Call us: 7719887492
+              </div>
+
+              <!-- Hamburger -->
+
+              <div id="data_toggle" class="hamburger ml-auto">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </header>
+
+<div class="menu">
+    <div class="menu_header d-flex flex-row align-items-center justify-content-start">
+      <div class="menu_logo"><a href="index.html">Hotel Anandi</a></div>
+      <div class="menu_close_container ml-auto"><div class="menu_close"><div></div><div></div></div></div>
+    </div>
+    <div class="menu_content">
+      <ul>
+        <li><a href="home">Home</a></li>
+        <li><a href="menu">Menu</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li><a href="team">Owner</a></li>
+      </ul>
+    </div>
+    <div class="menu_social">
+      <div class="menu_phone ml-auto">Call us: 7719887492</div>
+    </div>
+  </div>
+  
+
+  
+  
+  <!-- Home -->
+
+  <div class="home">
+    
+    <!-- Home Slider -->
+    <div class="home_slider_container">
+      <div class="owl-carousel owl-theme home_slider">
+        
+        <!-- Slide -->
+        <div class="owl-item">
+          <div class="background_image" style="background-image:url({% static 'images/b1.jpg' %})"></div>
+          <div class="home_slider_content_container">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="home_slider_content">
+                    <div class="home_title float">
+                      <center><img class="optionalstuff" style="position: relative;
+    margin-top: 100px;
+    width:400px;
+    height:300px;" src="{% static 'images/a.png' %}"></center></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide -->
+        
+      </div>
+
+      
+    </div>
+  </div>
+
+  <!-- Search -->
+
+  <div class="home_search">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="home_search_container">
+            <div class="home_search_title">You are about to eat delicious food.</div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intro -->
+
+  <div class="intro">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="intro_container">
+            <div class="row">
+
+              <!-- Intro Item -->
+              <div class="col-lg-4 intro_col">
+                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                  <div class="intro_icon"><img src="{% static 'images/food.png' %}" alt=""></div>
+                  <div class="intro_content">
+                    <div class="intro_title">Top Quality Food</div>
+                    <div class="intro_subtitle"><p>We serve the quality with taste.</p></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Intro Item -->
+              <div class="col-lg-4 intro_col">
+                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                  <div class="intro_icon"><img src="{% static 'images/best_price.jpg' %}" alt=""></div>
+                  <div class="intro_content">
+                    <div class="intro_title"> Best Prices</div>
+                    <div class="intro_subtitle"><p>We value our customers money.</p></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Intro Item -->
+              <div class="col-lg-4 intro_col">
+                <div class="intro_item d-flex flex-row align-items-end justify-content-start">
+                  <div class="intro_icon"><img src="{% static 'images/service.png' %}" alt=""></div>
+                  <div class="intro_content">
+                    <div class="intro_title">Best Services</div>
+                    <div class="intro_subtitle"><p>We serve at our door or at your door.</p></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  </div>
+
+  <!-- Destinations -->
+
+  <div class="destinations" id="destinations">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="section_subtitle"><a href="menu">Visit our Menu</a></div>
+          <div class="section_title"><h2>Our Speciality</h2></div>
+          <div class="section_title"><a href="menu">Visir pur menu page</a></div>
+        </div>
+      </div>
+      <div class="row destinations_row">
+        <div class="col">
+          <div class="destinations_container item_grid">
+
+            <!-- Destination -->
+            <div class="destination item ">
+              <div class="destination_image">
+                <img src="{% static 'images/misal.jpg' %}" alt="">
+                <!-- <div class="spec_offer text-center">Special</div> -->
+              </div>
+              <div class="destination_content">
+                <div class="destination_title">Chulivarchi Special Misal</div>
+
+              </div>
+            </div>
+
+            <!-- Destination -->
+            <div class="destination item ">
+              <div class="destination_image">
+                <img src="{% static 'images/jalebi.jpg' %}" alt="">
+              </div>
+              <div class="destination_content">
+                <div class="destination_title">Gulachi Jalebi</a></div>
+                
+              </div>
+            </div>
+
+            <!-- Destination -->
+            <div class="destination item ">
+              <div class="destination_image">
+                <img src="{% static 'images/chineese.jpg' %}" alt="">
+              </div>
+              <div class="destination_content">
+                <div class="destination_title">Chineese</a></div>
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+
+  <div class="testimonials" id="testimonials">
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/h8.jpg' %}" data-speed="0.8"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+        
+          <div class="section_title"><h2> Our Vision</h2></div>
+        </div>
+      </div>
+      <div class="row testimonials_row">
+        <div class="col">
+
+          <!-- Testimonials Slider -->
+          <div class="testimonials_slider_container">
+            <div class="owl-carousel owl-theme testimonials_slider">
+              
+              <!-- Slide -->
+              <div class="owl-item text-center">
+                <div class="testimonial">Hotel Anandi aims at providing best quality food at a reasonable price.</div>
+                <div class="testimonial_author">
+                  <div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+                    <div>Hotel Anandi</div>
+                    <div>Supa</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide -->
+              <div class="owl-item text-center">
+                <div class="testimonial">Hotel Anandi aims at providing best quality food at a reasonable price.</div>
+                <div class="testimonial_author">
+                  <div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+                    <div>Hotel Anandi</div>
+                    <div>Supa</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide -->
+              <div class="owl-item text-center">
+                <div class="testimonial">Hotel Anandi aims at providing best quality food at a reasonable price.</div>
+                <div class="testimonial_author">
+                  <div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+                    <div>Hotel Anandi</div>
+                    <div>Supa</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+  <!-- News -->
+<div class="container-fluid padding mt-5 mb-5">
+
+  <div class="row padding ml-2">
+  <div class=" col-sm-12 col-lg-7">
+    <h2 style="color:green">Place to EAT...</h2>
+    <p>We welcome you at HOTEL ANANDI. At hotel Anandi we are dedicated to serve food with quality and cleanliness.</p>
+    <p><b> Quality</b></p>
+    <p><b> Service</b></p>
+    <p><b> Cleanliness</b></p>
+    <p><b> Value for money</b></p>
+    <p>Above mentioned are the core four values of Hotel Anandi.</p>
+        <br>
+     
+  </div>
+
+  <div class="col-sm-12 col-lg-5">
+      <video width="420" height="300" controls>
+        <source src="{% static 'video.mp4' %}" type="video/mp4">
+      </video>
+  </div>
+
+  </div>  
+</div>
+
+
+  <!-- Footer -->
+
+<footer>
+  <div class="container-fluid padding">
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/footer1.jpg' %}" data-speed="0.8"></div>
+        <div class="row text-center ">
+          <div class="col-md-4">
+
+
+
+                  <!-- <img src="img/w3newbie.png"> -->
+                  <hr class="light">
+                  <h2 class="trial">For Home Delivery</h2>
+                  <hr class="light">
+                  <p class="trial">7719887492</p>
+                  <p class="trial">hotelanandi@gmail.com</p>
+                  <p class="trial">Hotel Anandi,Nagar-Pune Highway </p>
+                  <p class="trial">Supa</p>
+          </div>
+
+
+          <div class="col-md-4">
+                  
+                  <hr class="light">
+                  <h2 class="trial">Our Hours</h2>
+                  <hr class="light">
+                  <p class="trial">Everyday 6am - 12pm </p>
+                  
+          </div>
+
+ 
+            <div class="col-md-4">
+                  
+                  <hr class="light">
+                  <h2 class="trial" >Service Area</h2>
+                  <hr class="light">
+                  <p class="trial">Ahmednagar</p>
+                  <p class="trial">Supa </p>
+                  <p class="trial">Shirur</p>
+                  <!-- <p>city state 0000</p> -->
+          </div>
+          
+        </div>
+  </div>
+</footer>
+
+
+
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>
